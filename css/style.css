@@ -403,4 +403,140 @@ a
 
 
 
- 
+ /* Arama Kutusu Stilleri */
+.navbar .input-group {
+    margin-left: 20px;
+    max-width: 300px;
+  }
+  
+  #searchInput {
+    border-radius: 20px;
+    border-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  #searchInput::placeholder {
+    color: rgba(255,255,255,0.6);
+  }
+  
+  #searchInput:focus {
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: none;
+    border-color: rgba(255,255,255,0.4);
+  }
+  
+  .input-group-append button {
+    background-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+  }
+  
+  .input-group-append button:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+  
+  .input-group-append button i {
+    color: rgba(255,255,255,0.8);
+  }
+  
+  /* Mobil Uyumluluk */
+  @media (max-width: 991px) {
+    .navbar .input-group {
+      margin: 10px 15px;
+      max-width: 100%;
+    }
+    
+    #searchInput {
+      border-radius: 20px 0 0 20px;
+    }
+  }
+  /* Modal İyileştirmeleri */
+.modal-content {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    border-radius: 15px 15px 0 0;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.form-control-lg {
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-lg:focus {
+    border-color: #071365;
+    box-shadow: 0 0 0 0.2rem rgba(55,190,203,0.25);
+}
+
+.btn-lg {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+.social-auth-links .btn {
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.social-auth-links .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* Geri Bildirim Stilleri */
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.star-container {
+    font-size: 2rem;
+    color: #ffd700;
+    cursor: pointer;
+}
+
+.star-container .fa-star {
+    transition: all 0.2s ease;
+    margin: 0 3px;
+}
+
+.star-container .fa-star:hover,
+.star-container .fa-star.active {
+    transform: scale(1.2);
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+#feedbackForm .form-control {
+    border-radius: 0.5rem;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+#feedbackForm .form-control:focus {
+    border-color: #37becb;
+    box-shadow: 0 0 0 0.25rem rgba(55, 190, 203, 0.25);
+}
+
+#feedbackForm .btn-primary {
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+#feedbackForm .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
