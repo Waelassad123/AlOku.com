@@ -18,17 +18,31 @@
 	<style>
 		.carousel-inner img{
 			width: 100%;
-			height: 100%;
+			height: 60%;
 		}
 	</style>
 </head>
 <body>
  
 	<div class="navbar navbar-dark navbar-expand-md fixed-top" style="background-color: #37becb">
+	
 			<div class="container">
 				<a class="navbar-brand" href="#">
 					<img src="images/lg.png" style="width: 100%;">
 				</a>
+				<ul class="navbar-nav" style="width: 70%;padding: 10px">
+					<!-- Diğer menü öğeleri -->
+					<li class="nav-item" style="margin-left: 20px;">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Kitap veya Yazar Ara" id="searchInput">
+							<div class="input-group-append">
+								<button class="btn btn-light" type="button" onclick="performSearch()">
+									<i class="fa fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</li>
+				</ul>
 				<button class="btn btn-light navbar-toggler" data-toggle="collapse" data-target="#navcl"><span class="navbar-toggler-icon "></span></button>
 				<div class="collapse navbar-collapse" id="navcl">
                    
@@ -42,12 +56,121 @@
 						<li class="nav-item"><a class="nav-link" href="hakk%C4%B1m%C4%B1zda.html"><p style="font-size:17px">Hakkımızda</p></a></li>
                     </ul>
 						
-						<ul class="navbar-nav" style="width: 18%;float:left;margin-left: :30px">
-                       	  <li class="nav-item active" style="float: right"><a class="nav-link" href="" data-toggle="modal" data-target="#de-modal2"><p style="font-size:17px; margin-right: 10px;">Giriş Yap</p></a></li>
-                        	<li class="nav-item active"><a class="nav-link" href="" data-toggle="modal" data-target="#de-modal"><p style="font-size:17px">Kayıt Ol</p></a></li>
-                           
-                    
-					</ul>
+					<div class="d-flex align-items-center">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="btn btn-outline-light mx-2" href="#" data-toggle="modal" data-target="#loginModal">
+									Giriş Yap
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="btn btn-primary" href="#" data-toggle="modal" data-target="#registerModal">
+									Kayıt Ol
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- İçerikler aynı kalıyor... -->
+	
+		<!-- Geliştirilmiş Kayıt Ol Modal -->
+		<div class="modal fade" id="registerModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header bg-primary text-white">
+						<h4 class="modal-title">Hesap Oluştur</h4>
+						<button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label>Adınız</label>
+								<input type="text" class="form-control form-control-lg" placeholder="Adınız" required>
+							</div>
+							<div class="form-group">
+								<label>Soyadınız</label>
+								<input type="text" class="form-control form-control-lg" placeholder="Soyadınız" required>
+							</div>
+							<div class="form-group">
+								<label>E-posta</label>
+								<input type="email" class="form-control form-control-lg" placeholder="ornek@mail.com" required>
+							</div>
+							<div class="form-group">
+								<label>Şifre</label>
+								<input type="password" class="form-control form-control-lg" placeholder="••••••••" required>
+								<small class="form-text text-muted">En az 8 karakter</small>
+							</div>
+							<div class="form-group form-check">
+								<input type="checkbox" class="form-check-input" id="terms">
+								<label class="form-check-label" for="terms">
+									<a href="#" class="text-primary">Kullanım Koşulları</a>'nı kabul ediyorum
+								</label>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block btn-lg">Kayıt Ol</button>
+						</form>
+						<div class="text-center mt-3">
+							<p class="mb-1">Zaten hesabınız var mı? <a href="#" class="text-primary" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Giriş Yap</a></p>
+							<div class="social-auth-links mt-3">
+								<p class="mb-2">Sosyal medya ile bağlan</p>
+								<a href="#" class="btn btn-outline-secondary">
+									<i class="fa fa-google"></i> Google
+								</a>
+								<a href="#" class="btn btn-outline-secondary">
+									<i class="fa fa-facebook"></i> Facebook
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Geliştirilmiş Giriş Yap Modal -->
+		<div class="modal fade" id="loginModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header bg-primary text-white">
+						<h4 class="modal-title">Hoş Geldiniz</h4>
+						<button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label>E-posta</label>
+								<input type="email" class="form-control form-control-lg" placeholder="ornek@mail.com" required>
+							</div>
+							<div class="form-group">
+								<label>Şifre</label>
+								<input type="password" class="form-control form-control-lg" placeholder="••••••••" required>
+								<small class="form-text text-right">
+									<a href="#" class="text-primary">Şifremi unuttum?</a>
+								</small>
+							</div>
+							<div class="form-group form-check">
+								<input type="checkbox" class="form-check-input" id="remember">
+								<label class="form-check-label" for="remember">Beni hatırla</label>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block btn-lg" >Giriş Yap</button>
+						</form>
+						<div class="text-center mt-3">
+							<p class="mb-1">Hesabınız yok mu? <a href="#" class="text-primary" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Kayıt Ol</a></p>
+							<div class="social-auth-links mt-3">
+								<p class="mb-2">Sosyal medya ile bağlan</p>
+								<a href="#" class="btn btn-outline-secondary">
+									<i class="fa fa-google"></i> Google
+								</a>
+								<a href="#" class="btn btn-outline-secondary">
+									<i class="fa fa-facebook"></i> Facebook
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
                   
 				</div>
 			</div>
@@ -509,7 +632,69 @@ Ancak hayatının kritik bir döneminde eline aldığı bu kitap hiç beklemedi�
     <br><br> 
     
     
-    
+    <!-- Geri Bildirim Bölümü -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="section-title text-center mb-5">
+                <h2 class="text-primary">Görüşleriniz Bizim İçin Değerli</h2>
+                <p class="lead">Deneyimlerinizi paylaşın, daha iyi hizmet vermemize yardımcı olun.</p>
+            </div>
+            
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <form id="feedbackForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating">
+									<label for="name">Adınız</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Adınız" required>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating">
+									<label for="email">E-posta Adresiniz</label>
+                                    <input type="email" class="form-control" id="email" placeholder="E-posta" required>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-floating">
+								<label for="message">Mesajınız</label>
+                                <textarea class="form-control" id="message" placeholder="Mesajınız" 
+                                          style="height: 150px" required></textarea>
+                               
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Memnuniyet Dereceniz</label>
+                            <div class="rating-stars">
+                                <div class="star-container">
+                                    <i class="fa fa-star" data-rating="1"></i>
+                                    <i class="fa fa-star" data-rating="2"></i>
+                                    <i class="fa fa-star" data-rating="3"></i>
+                                    <i class="fa fa-star" data-rating="4"></i>
+                                    <i class="fa fa-star" data-rating="5"></i>
+                                </div>
+                                <input type="hidden" id="ratingValue" name="rating" required>
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fa fa-paper-plane me-2"></i>Gönder
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     
     
     
@@ -710,5 +895,70 @@ Ancak hayatının kritik bir döneminde eline aldığı bu kitap hiç beklemedi�
                     </div>
                     </div>
                </div>
+			   <script>
+				// Yıldız derecelendirme fonksiyonu
+				document.querySelectorAll('.fa-star').forEach(star => {
+					star.addEventListener('click', function() {
+						const rating = parseInt(this.dataset.rating);
+						const stars = document.querySelectorAll('.fa-star');
+						
+						stars.forEach((s, index) => {
+							s.classList.toggle('active', index < rating);
+						});
+						
+						document.getElementById('ratingValue').value = rating;
+					});
+				});
+				
+				// Form gönderme işlemi
+				document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+					e.preventDefault();
+					
+					// Bu kısmı kendi sunucu mantığınıza göre düzenleyin
+					const formData = {
+						name: document.getElementById('name').value,
+						email: document.getElementById('email').value,
+						message: document.getElementById('message').value,
+						rating: document.getElementById('ratingValue').value
+					};
+					
+					console.log('Geri Bildirim Gönderildi:', formData);
+					alert('Geri bildiriminiz için teşekkür ederiz!');
+					this.reset();
+					document.querySelectorAll('.fa-star').forEach(s => s.classList.remove('active'));
+				});
+				</script>
+				<script>
+					// Kitap ve yazar veri yapısı
+					const searchData = [
+						{title: "Tutunamayanlar", author: "Oğuz Atay", url: "tutunamayanlar.html"},
+						{title: "Çalıkuşu", author: "Reşat Nuri Güntekin", url: "calikusu_eser.html"},
+						{title: "Yeni Dünya", author: "Sabahattin Ali", url: "yenid%C3%BCnya_eser.html"},
+						// Diğer tüm kitapları buraya eklemelisiniz...
+						{title: "Kuyucaklı Yusuf", author: "Sabahattin Ali", url: "kuyucakl%C4%B1yusuf_eser.html"},
+						{title: "Aşk", author: "Elif Şafak", url: "ask_eser.html"}
+					];
+					
+					function performSearch() {
+						const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+						const result = searchData.find(item => 
+							item.title.toLowerCase().includes(searchTerm) || 
+							item.author.toLowerCase().includes(searchTerm)
+						);
+					
+						if(result) {
+							window.location.href = result.url;
+						} else {
+							alert('Aradığınız kitap veya yazar bulunamadı.');
+						}
+					}
+					
+					// Enter tuşu desteği
+					document.getElementById('searchInput').addEventListener('keypress', function(e) {
+						if(e.key === 'Enter') {
+							performSearch();
+						}
+					});
+					</script>
 </body>
 </html>
